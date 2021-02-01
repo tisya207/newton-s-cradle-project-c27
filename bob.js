@@ -1,25 +1,18 @@
 class Bob {
-    constructor(x, y,width,height) {
+    constructor(x, y, radius) {
       var options = {
-          'restitution':0.3,
-          'friction':0.5,
-          'density':1.2,
+          'restitution':1,
+          'friction':0,
+          'density':0.8
       }
-    this.body = Bodies.rectangle(x,y,width,height,options)
-    World.add(world,this.body);
-    this.height = height
-    this.width = width
-
-     }
-
-     display(){
-    var pos = this.body.position;
-    rectMode(CENTER);
-    fill("yellow")
-    rect(pos.x, pos.y, this.height, this.width)
-
-     }
-
-
+      this.body = Bodies.circle(x, y, radius , options);
+      this.radius = radius;     
+      World.add(world, this.body);
     }
-
+    display(){
+      var pos =this.body.position;
+      ellipseMode(RADIUS);
+      fill("white");
+      ellipse(pos.x, pos.y, this.radius,this.radius);
+    }
+  }
